@@ -11,6 +11,7 @@ body{
 .header{
     color: white;
 }
+
 .grid{
     display: flex;
     flex-direction: row;
@@ -27,4 +28,25 @@ body{
     width: 20px;
     height: 20px;
     background-color: wheat;
+}
+
+/* Selection Bar */
+
+.selectionBar{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    align-items: center;
+}
+
+
+/* Color selection*/
+
+.select{
+    color: white;
+    background-color: black;
+}
+
+option{
+    color: white;
 }

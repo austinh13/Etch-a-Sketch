@@ -1,5 +1,5 @@
 const mainBody = document.body;
-
+var color = "black";
 /* Initial Screen */
 
 const holder = document.createElement("div");
@@ -12,32 +12,46 @@ header.classList.add("header");
 header.innerHTML = "Etch-a-Sketch!"
 
 /* Selection Bar */
+const selectionBar = document.createElement("div");
+selectionBar.classList.add("selectionBar");
+
 const selection = document.createElement("div");
 selection.classList.add("selector");
+selection.style.color = "white";
 
 const select = document.createElement("select");
 select.classList.add("dropDown");
+select.addEventListener("change", () => changeColor(select.value))
+
+const blackOption = document.createElement("option");
+blackOption.style.backgroundColor = "black";
+blackOption.textContent = "black";
 
 const blueOption = document.createElement("option");
 blueOption.style.backgroundColor = "blue";
+blueOption.textContent = "blue";
 
 const redOption = document.createElement("option");
 redOption.style.backgroundColor = "red";
+redOption.textContent = "red";
 
 const greenOption = document.createElement("option");
 greenOption.style.backgroundColor = "green";
+greenOption.textContent = "green";
 
+select.appendChild(blackOption);
 select.appendChild(blueOption);
 select.appendChild(redOption);
 select.appendChild(greenOption);
 selection.appendChild(select);
+selectionBar.appendChild(selection);
 
 
 /* Add everything to holder */
 const grid = document.createElement("div");
 grid.classList.add("grid");
-holder.appendChild(selection);
 holder.appendChild(header);
+holder.appendChild(selectionBar);
 holder.appendChild(grid);
 
 createGrid(16);
@@ -50,13 +64,20 @@ function createGrid(pixels){
         for(let j = 0; j < pixels; j++){
             let section = document.createElement("div");
             section.classList.add("tile");
-            section.addEventListener("mouseover",() => changeColor(section))
+            section.addEventListener("mouseover",() => changeTile(section))
             col.appendChild(section);
         }
         grid.appendChild(col);
     }
 }
 
-function changeColor(section){
-    section.style.backgroundColor = "black";
+function changeTile(section){
+    section.style.backgroundColor = color;
+}
+
+
+function changeColor(newColor){
+    select.style.backgroundColor = newColor;
+    color = newColor;
+    select.style.color = "white";
 }
