@@ -15,10 +15,6 @@ header.innerHTML = "Etch-a-Sketch!"
 const selectionBar = document.createElement("div");
 selectionBar.classList.add("selectionBar");
 
-const selection = document.createElement("div");
-selection.classList.add("selector");
-selection.style.color = "white";
-
 const select = document.createElement("select");
 select.classList.add("dropDown");
 select.addEventListener("change", () => changeColor(select.value))
@@ -43,8 +39,7 @@ select.appendChild(blackOption);
 select.appendChild(blueOption);
 select.appendChild(redOption);
 select.appendChild(greenOption);
-selection.appendChild(select);
-selectionBar.appendChild(selection);
+selectionBar.appendChild(select);
 
 
 /* Add everything to holder */
