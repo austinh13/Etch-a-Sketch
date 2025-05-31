@@ -35,9 +35,14 @@ const greenOption = document.createElement("option");
 greenOption.style.backgroundColor = "green";
 greenOption.textContent = "green";
 
+const purpleOption = document.createElement("option");
+purpleOption.style.backgroundColor = "purple";
+purpleOption.textContent = "purple";
+
 select.appendChild(blackOption);
 select.appendChild(blueOption);
 select.appendChild(redOption);
+select.appendChild(purpleOption);
 select.appendChild(greenOption);
 selectionBar.appendChild(select);
 
