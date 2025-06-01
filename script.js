@@ -1,5 +1,6 @@
 const mainBody = document.body;
 var color = "black";
+const sizeOfScreen = screen.width;
 /* Initial Screen */
 
 const holder = document.createElement("div");
@@ -75,12 +76,15 @@ createGrid(16);
 /* Function to create a grid */
 function createGrid(pixels){
     clearChildren(grid);
+    var tileSize = 350/pixels;
     for(let i = 0; i < pixels;i++){
         let col = document.createElement("div");
         col.classList.add("column");
         for(let j = 0; j < pixels; j++){
             let section = document.createElement("div");
             section.classList.add("tile");
+            section.style.width = tileSize + "px";
+            section.style.height = tileSize + "px";
             section.addEventListener("mouseover",() => changeTile(section))
             col.appendChild(section);
         }
