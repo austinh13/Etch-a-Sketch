@@ -15,6 +15,7 @@ header.innerHTML = "Etch-a-Sketch!"
 const selectionBar = document.createElement("div");
 selectionBar.classList.add("selectionBar");
 
+/* Color Selection*/
 const select = document.createElement("select");
 select.classList.add("dropDown");
 select.addEventListener("change", () => changeColor(select.value))
@@ -44,7 +45,22 @@ select.appendChild(blueOption);
 select.appendChild(redOption);
 select.appendChild(purpleOption);
 select.appendChild(greenOption);
+
+/* Grid Slider */
+const slideContainer = document.createElement("div")
+slideContainer.classList.add("slideContainer");
+
+const slider = document.createElement("input");
+slider.type = "range";
+slider.min = "16";
+slider.max = "32";
+slider.value = "16";
+slider.addEventListener("input", () => createGrid(slider.value));
+
+slideContainer.appendChild(slider);
+
 selectionBar.appendChild(select);
+selectionBar.appendChild(slideContainer);
 
 
 /* Add everything to holder */
@@ -58,6 +74,7 @@ createGrid(16);
 
 /* Function to create a grid */
 function createGrid(pixels){
+    clearChildren(grid);
     for(let i = 0; i < pixels;i++){
         let col = document.createElement("div");
         col.classList.add("column");
@@ -75,6 +92,11 @@ function changeTile(section){
     section.style.backgroundColor = color;
 }
 
+function clearChildren(parent){
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild);
+    }
+}
 
 function changeColor(newColor){
     select.style.backgroundColor = newColor;
