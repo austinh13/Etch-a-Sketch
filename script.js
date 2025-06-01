@@ -63,6 +63,8 @@ slideContainer.appendChild(slider);
 selectionBar.appendChild(select);
 selectionBar.appendChild(slideContainer);
 
+const copyRight = document.createElement("p");
+copyRight.innerHTML = "Copyright © 2025 Austin Ha";
 
 /* Add everything to holder */
 const grid = document.createElement("div");
@@ -70,6 +72,7 @@ grid.classList.add("grid");
 holder.appendChild(header);
 holder.appendChild(selectionBar);
 holder.appendChild(grid);
+holder.appendChild(copyRight);
 
 createGrid(16);
 
